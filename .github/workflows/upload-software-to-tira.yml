@@ -51,4 +51,4 @@ jobs:
             --task trec-auto-judge \
             --dataset trec-auto-judge/kiddie-20260605-training \
             --forward-environment-variable OPENAI_API_KEY OPENAI_BASE_URL OPENAI_MODEL \
-            --command 'auto-judge run --workflow /auto-judge/judges/duth_quality/workflow.yml --rag-responses $inputDataset/runs/*/ --rag-topics $inputDataset/topics/*.jsonl --out-dir $outputDir'
+            --command 'auto-judge run --workflow /auto-judge/judges/duth_fine100/workflow.yml --rag-responses $inputDataset/runs/*/ --rag-topics $inputDataset/topics/*.jsonl --out-dir $outputDir'

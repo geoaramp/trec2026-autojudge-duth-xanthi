@@ -1,0 +1,8 @@
+judge_class: "judges.duth_fine100.duth_fine100:DuthFine100Judge"
+
+create_nuggets: false
+create_qrels: false
+judge: true
+
+settings:
+  filebase: "duth_fine100"
