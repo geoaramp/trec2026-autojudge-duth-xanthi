@@ -36,5 +36,5 @@ jobs:
       - name: Build, test, and upload image
         run: |
           tira-cli login --token ${{ secrets.TIRA_CLIENT_TOKEN }}
-          tira-cli verify-installation
+          tira-cli verify-installation --task trec-auto-judge --team duth-xanthi
           tira-cli code-submission --path ${{ inputs.directory }} --task trec-auto-judge --dataset trec-auto-judge/kiddie-20260605-training
