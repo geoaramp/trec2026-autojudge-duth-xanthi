@@ -33,6 +33,10 @@ jobs:
           python -m pip install --upgrade pip
           pip3 install tira
 
+      - name: Patch TIRA client compatibility
+        run: |
+          python -c 'from pathlib import Path; import tira.local_execution_integration as m; p=Path(m.__file__); s=p.read_text(); old="self.tira_client.docker_software(approach=identifier, software_id=software_id)"; new="self.tira_client.docker_software(approach=identifier)"; assert old in s, "compatibility target not found"; p.write_text(s.replace(old,new)); print("Patched", p)'
+
       - name: Build, test, and upload image
         run: |
           tira-cli login --token ${{ secrets.TIRA_CLIENT_TOKEN }}
