@@ -1,0 +1,8 @@
+judge_class: "judges.duth_quality.duth_quality:DuthQualityJudge"
+
+create_nuggets: false
+create_qrels: false
+judge: true
+
+settings:
+  filebase: "duth_quality"
