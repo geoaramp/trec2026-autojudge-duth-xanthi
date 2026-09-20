@@ -41,4 +41,9 @@ jobs:
         run: |
           tira-cli login --token ${{ secrets.TIRA_CLIENT_TOKEN }}
           tira-cli verify-installation --task trec-auto-judge --team duth-xanthi
-          tira-cli code-submission --path ${{ inputs.directory }} --task trec-auto-judge --dataset trec-auto-judge/kiddie-20260605-training
+          tira-cli code-submission \
+            --path ${{ inputs.directory }} \
+            --file Dockerfile \
+            --task trec-auto-judge \
+            --dataset trec-auto-judge/kiddie-20260605-training \
+            --command 'auto-judge run --workflow /auto-judge/judges/duth_quality/workflow.yml --rag-responses $inputDataset/runs/*/ --rag-topics $inputDataset/topics/*.jsonl --out-dir $outputDir'
